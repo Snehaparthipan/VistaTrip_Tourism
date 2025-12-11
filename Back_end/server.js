@@ -1,9 +1,14 @@
-const connectDB=require('../Back_end/Config/db')
-const express=require('express')
-const app=express
-const PORT=5000
+const connectDB=require("./Config/db")
+const express=require("express")
+const cors=require("cors")
+const userroutes=require("../Back_end/Router/Userrouter")
+const app=express()
+const PORT=3000
+app.use(cors())
 app.use(express.json())
 connectDB()
+app.use('/api',userroutes)
 app.listen(PORT,()=>{
-    console.log(`server run in port ${PORT}`)
-})
+    console.log("server run")
+}
+)
