@@ -10,7 +10,6 @@ const postUser = async(req,res)=>{
         console.log(error)
         res.status(500).json({message:"error in user creation"})
     }
-    
 }
 const getuser=async(req,res)=>{
     try{
@@ -36,15 +35,18 @@ const putUser=async(req,res)=>{
 }
 const  deleteuser=async(req,res)=>{
     try{
+        
         const deleteuser=await user.findByIdAndDelete(req.params.id,
             req.body,
             {new:true}
         )
         res.status(200).json({message:"user get from DB",data:deleteuser})
     }
-    catch(error){
+    catch(error)
+    {
         console.log(error)
     }
+
 }
 
 
@@ -69,8 +71,7 @@ const genToken= async (req,res)=> {
         const isMatch=await bcrypt.compare(password,user.password)
         if(!isMatch)return res.status(401).json({message:'invalid password'})
             const token=jwt.sign({userID:user.id},SECRET_KEY,{expiresIn:'1h'})
-        res.json({message:"login successful",token})
-   
+        res.json({message:"login successful",token})  
 }
 
 function verifyToken(req,res,next){

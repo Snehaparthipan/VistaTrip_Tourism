@@ -1,21 +1,23 @@
-import React, { useState } from "react";
-
+import React, { useState } from "react"
+import { Link } from "react-router-dom";
+import Home from "../Pages/Home";
 const Navbar = () => {
   const [open, setOpen] = useState(false);
 
   return (
+    <>
     <nav className="navbar">
       <div className="navleft">
-        <h2 className="logo">TRAVEL</h2>
+        <table><tr><td><img src="https://i.postimg.cc/fWxcX2ZC/Untitled-design-removebg-preview.png" height={100} alt="" /></td><td><h2 className="logo" style={{fontFamily:"-apple-system"}}>VISTA TRIP</h2></td></tr></table>
       </div>
       <nav className={`navcenter ${open ? "open" : ""}`}>
-        <a href="#">Rewards</a>
-        <a href="#">Discover</a>
-        <a href="#">Trips</a>
-        <a href="#">Review</a>
-        <a href="#">More ▾</a>
+       <Link to="/">Rewards</Link>
+       <Link to="/">Discover</Link>
+       <Link to="/">Trips</Link>
+       <Link to="/">Review</Link>
+       <Link to="/">More ▾</Link>
       </nav>
-
+    
 
       <div className="navright">
         <span className="currency">USD</span>
@@ -27,7 +29,8 @@ const Navbar = () => {
         </div>
       </div>
     </nav>
+    </>
   );
 };
 
-export default Navbar;
+export default Navbar
