@@ -12,7 +12,7 @@ const postUser = async(req,res)=>{
     }
 }
 const getuser=async(req,res)=>{
-    try{
+    try{ 
         const getuser=await user.find()
         res.status(200).json({message:"user get from DB",data:getuser})
     }
@@ -48,6 +48,38 @@ const  deleteuser=async(req,res)=>{
     }
 
 }
+
+
+
+//package.js
+const Package = require('../Model/Package');
+const userPackage = async (req, res) => {
+try {
+const packages = await Package.find();
+res.status(200).json({message:"success",data:packages});
+} catch (error) {
+    console.log(error)
+}
+}
+
+
+//booking.js
+
+const Booking = require('../Model/Booking')
+const userBooking= async (req, res) => {
+try {
+    
+    
+    const bookingId = 'TRIP' + Math.floor(Math.random() * 100000)
+    const booking = new Booking({ ...req.body, bookingId });
+    await booking.save();
+    res.status(200).json({message:"user bookied",data:booking});
+} catch (error) {
+    console.log(error)
+}
+    }
+
+
 
 
 // jwt tokens
@@ -92,4 +124,4 @@ const getToken=(req,res)=>{
     res.json({message:`welcome user ${req.user.userID}`,status:"assess granted"}
     )
 }
-module.exports = {postUser,getuser,deleteuser,putUser,genToken,verifyToken,getToken}
+module.exports = {postUser,getuser,deleteuser,putUser,userPackage,userBooking,genToken,verifyToken,getToken}
