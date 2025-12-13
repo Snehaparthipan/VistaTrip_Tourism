@@ -53,7 +53,8 @@
 }
 
 .bookbtn {
-  background: #005f2f;
+      background: linear-gradient(90deg, #fc036b, #41031d);
+
   color: #fff;
   padding: 10px 18px;
   border: none;
@@ -66,7 +67,8 @@
 }
 
 .bookbtn:hover {
-  background: #008a45;
+  background: linear-gradient(90deg, #fc036b, #41031d);
+
 }
 
 /* Hamburger menu */

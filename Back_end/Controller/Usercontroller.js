@@ -80,6 +80,44 @@ try {
     }
 
 
+//flight
+
+const Airport=require('../Model/Flight')
+const postflight = async(req,res)=>{
+    try{
+        const{city,cityCode,airportName,country}=req.body
+        const newuser=new Airport({city,cityCode,airportName,country})
+        await newuser.save()
+        res.status(200).json({message:"user created",data:newuser})
+    }
+    catch(error){
+        console.log(error)
+        res.status(500).json({message:"error in user creation"})
+    }
+}
+
+
+ const flight=async (req, res) => {
+    try {
+        const q = req.query.q || "";
+
+  const result = await Airport.find({
+    $or: [
+      { city: { $regex: q, $options: "i" } },
+      { cityCode: { $regex: q, $options: "i" } },
+      { airportName: { $regex: q, $options: "i" } }
+    ]
+  })
+
+    res.status(200).json({message:"user bookied",data:booking});
+    } catch (error) {
+    console.log(error)
+    }
+  
+};
+
+
+
 
 
 // jwt tokens
@@ -124,4 +162,4 @@ const getToken=(req,res)=>{
     res.json({message:`welcome user ${req.user.userID}`,status:"assess granted"}
     )
 }
-module.exports = {postUser,getuser,deleteuser,putUser,userPackage,userBooking,genToken,verifyToken,getToken}
+module.exports = {postUser,getuser,deleteuser,putUser,userPackage,userBooking,flight,postflight,genToken,verifyToken,getToken}

@@ -1,0 +1,82 @@
+.ticket{
+    position: relative;
+    background-color: rgba(0, 0, 0, 0.153);
+    width: 80%;
+    border-radius: 10px;
+    height: auto;
+    margin: 50px auto;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    /* text-align: center; */
+}
+.navdiv{
+    margin: 30px;
+}
+.nav {
+    text-decoration: none;
+    margin: 50px 60px auto;
+    color: black;
+
+}
+.input{
+    display: flex;
+}
+.searchbox{
+    width: 50%;
+    height: 40px;
+    margin: 20px 80px auto;
+    border: none;
+    border-radius: 5px;
+    text-align: center;
+}
+.input button{
+    width: 20%;
+    height: 40px;
+     margin: 20px 10px auto;
+    border: none;
+    border-radius: 5px;
+    background: linear-gradient(90deg, #fc036b, #41031d);
+    color: white;
+    outline: none;
+
+}
+.input-wrapper {
+  position: relative;
+  width: 320px;
+}
+
+.input-box {
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  outline: none;
+}
+
+.dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background: white;
+  border: 1px solid #ddd;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  z-index: 10;
+}
+
+.dropdown-item {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.dropdown-item:hover {
+  background: #f2f8ff;
+}
+
+.dropdown-item p {
+  font-size: 12px;
+  margin: 2px 0 0;
+  color: #555;
+}
+
