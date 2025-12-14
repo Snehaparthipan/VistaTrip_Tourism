@@ -52,7 +52,7 @@
   font-family: "Poppins", sans-serif;
 }
 
-.bookbtn {
+.logbtn {
       background: linear-gradient(90deg, #fc036b, #41031d);
 
   color: #fff;
@@ -66,7 +66,7 @@
   font-family: "Poppins", sans-serif;
 }
 
-.bookbtn:hover {
+.logbtn:hover {
   background: linear-gradient(90deg, #fc036b, #41031d);
 
 }

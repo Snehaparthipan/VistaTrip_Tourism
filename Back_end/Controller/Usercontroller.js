@@ -162,4 +162,28 @@ const getToken=(req,res)=>{
     res.json({message:`welcome user ${req.user.userID}`,status:"assess granted"}
     )
 }
-module.exports = {postUser,getuser,deleteuser,putUser,userPackage,userBooking,flight,postflight,genToken,verifyToken,getToken}
+
+
+
+const Place=require('../Model/Place')
+
+// GET places by search text
+const searchPlace=async (req, res) => {
+  try {
+    const search = req.query.search || "";
+
+    const places = await Place.find({
+      name: { $regex: search, $options: "i" }
+    }).limit(10);
+
+    res.json(places);
+  } catch (err) {
+    res.status(500).json({ message: "Server Error" });
+  }
+}
+
+
+
+
+
+module.exports = {searchPlace,postUser,getuser,deleteuser,putUser,userPackage,userBooking,flight,postflight,genToken,verifyToken,getToken}
